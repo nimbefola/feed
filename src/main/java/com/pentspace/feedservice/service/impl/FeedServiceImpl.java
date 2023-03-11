@@ -43,10 +43,7 @@ public class FeedServiceImpl implements FeedService {
 
     @Override
     public Feed getById(String id) {
-        Feed feed =  feedRepository.findById(id).orElseThrow(()->new NoSuchElementException("Feed not found"));
-        String imageInBase64 = fileUploadService.readAndConvertImageToBase64Read(feed.getId());
-        feed.setFeedImageBase64(imageInBase64);
-        return feed;
+        return feedRepository.findById(id).orElseThrow(()->new NoSuchElementException("Feed not found"));
     }
 
     @Override

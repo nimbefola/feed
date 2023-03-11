@@ -17,8 +17,6 @@ public class Feed extends Base {
     @OneToMany(mappedBy = "feed")
     private List<Comment> comments;
     private String username;
-    @Transient
-    private String feedImageBase64;
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -60,13 +58,5 @@ public class Feed extends Base {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public String getFeedImageBase64() {
-        return feedImageBase64;
-    }
-
-    public void setFeedImageBase64(String feedImageBase64) {
-        this.feedImageBase64 = feedImageBase64;
     }
 }
