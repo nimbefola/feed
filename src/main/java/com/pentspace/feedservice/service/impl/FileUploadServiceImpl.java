@@ -23,6 +23,12 @@ import java.util.Base64;
 public class FileUploadServiceImpl implements FileUploadService {
     Region clientRegion = Region.EU_WEST_2;
     String bucketName = "pentspace-feed-picture"; // should be externalized
+
+
+//    Region clientRegion = Region.EU_WEST_3;
+//
+//    String bucketName = "pentspace-file-upload-bucket";
+
     @Override
     public String uploadFile(String entityId, MultipartFile file) {
         try {
@@ -55,7 +61,7 @@ public class FileUploadServiceImpl implements FileUploadService {
         }
     }
     S3Client getS3Client(){
-        ProfileCredentialsProvider profileCredentialsProvider = ProfileCredentialsProvider.create();
+       ProfileCredentialsProvider profileCredentialsProvider = ProfileCredentialsProvider.create();
         S3Client s3Client = S3Client.builder()
                 .region(clientRegion)
                 .credentialsProvider(profileCredentialsProvider)
